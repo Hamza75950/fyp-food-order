@@ -15,7 +15,9 @@
 
 import { User } from "../../models/User";
 import mongoose from "mongoose";
-import { isAdmin } from "../auth/[...nextauth]/route";
+import { isAdmin } from "../../../libs/isAdmin";
+// import { UserInfo } from "../../../models/UserInfo"; // Assuming UserInfo schema exists
+
 
 export async function GET(request) {
   try {

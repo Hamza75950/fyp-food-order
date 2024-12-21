@@ -25,7 +25,7 @@ export default function EditMenuPage() {
         setMenuItem(item);
       });
     });
-  }, []);
+  });
 
   async function handleFormSubmit(ev, data) {
     ev.preventDefault();
