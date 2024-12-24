@@ -114,8 +114,10 @@ export const authOptions = {
         try {
           await dbConnect(); // Ensure MongoDB connection
 
-          const email = credentials?.username;
+          const email = credentials?.email;
           const password = credentials?.password;
+          console.log(credentials);
+          
 
           const user = await User.findOne({ email });
           if (!user) {
