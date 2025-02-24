@@ -5,7 +5,7 @@
 // import Image from "next/image";
 
 // export default function MenuItem(menuItem) {
-//   const { image, name, description, basePrice, sizes, extraIngredientPrices } =
+//   const { image, name, description, basePrice, sizes, extraIngredientsPrices } =
 //     menuItem;
 
 //   const [selectedSize, setSelectedSize] = useState(sizes?.[0] || null);
@@ -14,7 +14,7 @@
 //   const { addToCart } = useContext(CartContext);
 
 //   function handleAddToCartButtonClick() {
-//     const hasOptions = sizes.length > 0 || extraIngredientPrices.length > 0;
+//     const hasOptions = sizes.length > 0 || extraIngredientsPrices.length > 0;
 //     if (hasOptions && !showPopup) {
 //       setShowPopup(true);
 //       return;
@@ -90,13 +90,13 @@
 //                   ))}
 //                 </div>
 //               )}
-//               {extraIngredientPrices?.length > 0 && (
+//               {extraIngredientsPrices?.length > 0 && (
 //                 <div className="py-2">
 //                   <h3 className="text-center text-gray-700 mb-1">
 //                     Any Extras?
 //                   </h3>
 
-//                   {extraIngredientPrices.map((extraThing) => (
+//                   {extraIngredientsPrices.map((extraThing) => (
 //                     <label key={extraThing._id} className="flex items-center gap-2 p-4 border rounded-md mb-1">
 //                       <input
 //                         type="checkbox"
@@ -136,7 +136,7 @@ import toast from "react-hot-toast";
 import Image from "next/image";
 
 export default function MenuItem(menuItem) {
-  const { image, name, description, basePrice, sizes, extraIngredientPrices } =
+  const { image, name, description, basePrice, sizes, extraIngredientsPrices } =
     menuItem;
 
   const [selectedSize, setSelectedSize] = useState(sizes?.[0] || null);
@@ -145,7 +145,7 @@ export default function MenuItem(menuItem) {
   const { addToCart } = useContext(CartContext);
 
   function handleAddToCartButtonClick() {
-    const hasOptions = sizes?.length > 0 || extraIngredientPrices?.length > 0;
+    const hasOptions = sizes?.length > 0 || extraIngredientsPrices?.length > 0;
     if (hasOptions && !showPopup) {
       setShowPopup(true);
       return;
@@ -224,12 +224,12 @@ export default function MenuItem(menuItem) {
                 </div>
               )}
 
-              {extraIngredientPrices?.length > 0 && (
+              {extraIngredientsPrices?.length > 0 && (
                 <div className="py-4">
                   <h3 className="text-center text-gray-700 mb-2">
                     Any Extras?
                   </h3>
-                  {extraIngredientPrices.map((extraThing) => (
+                  {extraIngredientsPrices.map((extraThing) => (
                     <label
                       key={extraThing._id}
                       className="flex items-center gap-2 p-4 border rounded-md mb-2"
