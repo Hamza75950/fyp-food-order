@@ -132,6 +132,7 @@ import {Order} from "../../models/Order";
 import mongoose from "mongoose";
 import {getServerSession} from "next-auth";
 
+
 export async function GET(req) {
   mongoose.connect(process.env.MONGO_URL);
 
