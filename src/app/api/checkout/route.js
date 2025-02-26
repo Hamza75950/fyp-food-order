@@ -26,7 +26,7 @@
 //   //   let productPrice = productInfo.basePrice;
 //   //   if(cartProduct.size){
 //   //     const size = productInfo.sizes.find(size=>size._id.toString() === cartProduct.size._id.toString());
-//   //     productPrice+=size.price; 
+//   //     productPrice+=size.price;
 //   //   }
 //   //   if(cartProduct.extras?.length >0 ){
 //   //     for(const cartProductExtraThing of cartProduct.extras){
@@ -61,7 +61,6 @@
 
 //     const productName = cartProduct.name;
 
-    
 //     stripeLineItems.push({
 //       quantity: 1,
 //       price_data: {
@@ -73,7 +72,7 @@
 //       },
 //     });
 //   }
- 
+
 //   // return Response.json(null);
 
 //   const stripeSession = await stripe.checkout.sessions.create({
@@ -95,8 +94,6 @@
 //   });
 //   return Response.json(stripeSession.url);
 // }
-
-
 
 import mongoose from "mongoose";
 import { getServerSession } from "next-auth";
@@ -143,7 +140,7 @@ export async function POST(req) {
 
       if (cartProduct.extras?.length > 0) {
         for (const extra of cartProduct.extras) {
-          const extraThingInfo = productInfo.extraIngredientPrices.find(
+          const extraThingInfo = productInfo.extraIngredientsPrices.find(
             (extraInfo) => extraInfo._id.toString() === extra._id.toString()
           );
           productPrice += extraThingInfo?.price || 0;
@@ -167,12 +164,15 @@ export async function POST(req) {
       line_items: stripeLineItems,
       mode: "payment",
       customer_email: userEmail,
-      success_url: process.env.NEXTAUTH_URL + "/orders/"+ orderDoc._id.toString()+ '?clear-cart=1',
+      success_url:
+        process.env.NEXTAUTH_URL +
+        "/orders/" +
+        orderDoc._id.toString() +
+        "?clear-cart=1",
       cancel_url: `${process.env.NEXTAUTH_URL}/cart?canceled=1`,
       metadata: { orderId: orderDoc._id.toString() },
       payment_intent_data: {
-      metadata: { orderId: orderDoc._id.toString() },
-        
+        metadata: { orderId: orderDoc._id.toString() },
       },
       shipping_options: [
         {

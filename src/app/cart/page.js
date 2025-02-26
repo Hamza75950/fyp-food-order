@@ -1,10 +1,10 @@
 "use client";
 import { CartContext, cartProductPrice } from "@/components/AppContext";
 import { useProfile } from "@/components/UseProfile";
-import Trash from "@/components/icons/Trash";
+// import Trash from "@/components/icons/Trash";
 import AddressInputs from "@/components/layout/AddressInputs";
 import SectionHeaders from "@/components/layout/SectionHeaders";
-import Image from "next/image";
+// import Image from "next/image";
 import { useContext, useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import CartProduct from "../../components/Menu/CartProduct";
