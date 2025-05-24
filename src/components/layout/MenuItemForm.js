@@ -97,6 +97,7 @@ export default function MenuItemForm({ onSubmit, menuItem }) {
             type="text"
             value={basePrice}
             onChange={(ev) => setBasePrice(ev.target.value)}
+            required
           ></input>
 
           <MenuItemPricePops
