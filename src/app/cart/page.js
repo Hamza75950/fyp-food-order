@@ -64,6 +64,7 @@ export default function CartPage() {
 
         if (response.ok) {
           const data = await response.json(); // Expecting { url: 'Stripe URL' } in response
+          console.log("checkout data...", data);
           if (data.url) {
             resolve(); // Indicate success for the toast
             window.location = data.url; // Redirect to Stripe Checkout
@@ -168,7 +169,14 @@ export default function CartPage() {
         <div>
           {cartProducts?.length === 0 && <div>No product in Shopping cart</div>}
           {cartProducts?.length > 0 &&
-            cartProducts.map((product, index) => <CartProduct key={index} product = {product} index = {index} onRemove = {removeCartProduct} />)}
+            cartProducts.map((product, index) => (
+              <CartProduct
+                key={index}
+                product={product}
+                index={index}
+                onRemove={removeCartProduct}
+              />
+            ))}
           <div className="py-2 text-right pr-16 flex justify-end items-center">
             <div className="text-gray-500">
               Subtotal: <br />
