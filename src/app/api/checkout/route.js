@@ -192,16 +192,14 @@
 //   }
 // }
 
-
-
-
-
-
 import mongoose from "mongoose";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 import { Order } from "../../models/Order";
 import { MenuItem } from "../../models/MenuItem";
+
+export const runtime = "nodejs";
+export const dynamic = "force-dynamic";
 
 const stripe = require("stripe")(process.env.STRIPE_SK);
 
